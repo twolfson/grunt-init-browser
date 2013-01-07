@@ -1,6 +1,6 @@
 # grunt-init-browser
 
-Grunt init template for distributing multiple versions of a browser script
+Grunt init template for generating and testing multiple versions of a browser script
 
 ## Getting Started
 Install `grunt-init-browser` globally and call it from the shell

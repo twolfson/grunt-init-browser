@@ -8,7 +8,7 @@
  */
 
 // Basic template description.
-exports.description = 'Create a jQuery plugin, including QUnit unit tests.';
+exports.description = 'Generate and test multiple versions of a browser script';
 
 // Template-specific notes to be displayed before question prompts.
 exports.notes = '';
@@ -19,30 +19,28 @@ exports.warnOn = '*';
 // The actual init template.
 exports.template = function(grunt, init, done) {
 
-  grunt.helper('prompt', {type: 'jquery'}, [
+  // Add on a keywords prompt
+  grunt.helper('prompt_for_obj').keywords = {
+    message: 'What keywords relate to this plugin (comma separated)?',
+    'default': 'browser'
+  };
+
+  grunt.helper('prompt', {type: 'browser'}, [
     // Prompt for these values.
     grunt.helper('prompt_for', 'name'),
-    grunt.helper('prompt_for', 'title', function(value, data, done) {
-      // Fix jQuery capitalization.
-      value = value.replace(/jquery/gi, 'jQuery');
-      done(null, value);
-    }),
-    grunt.helper('prompt_for', 'description', 'The best jQuery plugin ever.'),
+    grunt.helper('prompt_for', 'description', 'The best sample grunt tasks ever.'),
     grunt.helper('prompt_for', 'version'),
     grunt.helper('prompt_for', 'repository'),
     grunt.helper('prompt_for', 'homepage'),
     grunt.helper('prompt_for', 'bugs'),
-    grunt.helper('prompt_for', 'licenses', 'MIT'),
+    grunt.helper('prompt_for', 'licenses'),
     grunt.helper('prompt_for', 'author_name'),
     grunt.helper('prompt_for', 'author_email'),
     grunt.helper('prompt_for', 'author_url'),
-    grunt.helper('prompt_for', 'jquery_version')
+    grunt.helper('prompt_for', 'grunt_version'),
+    grunt.helper('prompt_for', 'node_version', '*'),
+    grunt.helper('prompt_for', 'keywords')
   ], function(err, props) {
-    // A few additional properties.
-    props.jqueryjson = props.name + '.jquery.json';
-    props.dependencies = {jquery: props.jquery_version || '>= 1'};
-    props.keywords = [];
-
     // Files to copy (and process).
     var files = init.filesToCopy(props);
 
