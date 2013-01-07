@@ -1,6 +1,5 @@
 /*global module:true */
 module.exports = function(grunt) {
-  // TODO: Create/pull request read+variables functionality into grunt-templater
   var read = grunt.file.read;
 
   // Project configuration.
@@ -16,29 +15,18 @@ module.exports = function(grunt) {
     template: {
       vanilla: {
         src: 'src/templates/vanilla.mustache',
-        dest: 'stage/jqueryp.js',
+        dest: 'stage/{%= name %}.js',
         variables: {
-          jqueryp: read('src/jqueryp.js'),
-          require_chainer: read('src/require_chainer.js')
+          '{%= name %}': read('src/{%= name %}.js')
         }
       },
       require: {
         src: 'src/templates/require.mustache',
-        dest: 'stage/jqueryp.require.js',
+        dest: 'stage/{%= name %}.require.js',
         variables: {
-          jqueryp: read('src/jqueryp.js'),
-          require_chainer: read('src/require_chainer.js')
-        }
-      },
-      chainer: {
-        src: 'src/templates/chainer.mustache',
-        dest: 'stage/jqueryp.chainer.js',
-        variables: {
-          jqueryp: read('src/jqueryp.js'),
-          require_chainer: read('src/require_chainer.js')
+          '{%= name %}': read('src/{%= name %}.js')
         }
       }
-
     },
     concat: {
       distVanilla: {
@@ -48,10 +36,6 @@ module.exports = function(grunt) {
       distRequire: {
         src: ['<banner:meta.banner>', '<file_strip_banner:stage/<%= pkg.name %>.require.js>'],
         dest: 'dist/<%= pkg.name %>.require.js'
-      },
-      distChainer: {
-        src: ['<banner:meta.banner>', '<file_strip_banner:stage/<%= pkg.name %>.chainer.js>'],
-        dest: 'dist/<%= pkg.name %>.chainer.js'
       }
     },
     min: {
@@ -62,10 +46,6 @@ module.exports = function(grunt) {
       distRequire: {
         src: ['<banner:meta.banner>', '<config:concat.distRequire.dest>'],
         dest: 'dist/<%= pkg.name %>.require.min.js'
-      },
-      distChainer: {
-        src: ['<banner:meta.banner>', '<config:concat.distChainer.dest>'],
-        dest: 'dist/<%= pkg.name %>.chainer.min.js'
       }
     },
     qunit: {
