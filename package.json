@@ -29,6 +29,9 @@
   "scripts": {
     "test": "grunt --base ./test/ --config ./test/grunt.js"
   },
+  "dependencies": {
+    "grunt-install-init": "~1.0.3"
+  },
   "devDependencies": {
     "grunt": "~0.3.17"
   },

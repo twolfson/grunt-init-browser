@@ -2,5 +2,7 @@
   "src/name.js": "src/{%= name %}.js",
   "test/name_test.js": "test/{%= name %}_test.js",
   "test/name.html": "test/{%= name %}.html",
+  "test/name_test.require.js": "test/{%= name %}_test.require.js",
+  "test/name.require.html": "test/{%= name %}.require.html",
   "dotgitignore": ".gitignore"
 }

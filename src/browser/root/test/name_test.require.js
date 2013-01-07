@@ -1,3 +1,6 @@
+/*global QUnit:false, module:false, test:false, asyncTest:false, expect:false*/
+/*global start:false, stop:false ok:false, equal:false, notEqual:false, deepEqual:false*/
+/*global notDeepEqual:false, strictEqual:false, notStrictEqual:false, raises:false*/
 /*
   ======== A Handy Little QUnit Reference ========
   http://docs.jquery.com/QUnit
@@ -31,7 +34,7 @@ test('is chainable', function() {
   stop();
 
   // Load jQuery.
-  require(['jquery'], function ($) {
+  require(['jquery', '{%= name %}'], function ($) {
     // Continue testing.
     start();
 
