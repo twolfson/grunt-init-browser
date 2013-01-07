@@ -1,0 +1,47 @@
+{
+  "name": "grunt-init-browser",
+  "description": "Grunt init template for distributing and testing multiple versions of a browser script",
+  "version": "0.1.0",
+  "homepage": "https://github.com/twolfson/grunt-init-browser",
+  "author": {
+    "name": "Todd Wolfson",
+    "email": "todd@twolfson.com",
+    "url": "http://twolfson.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/twolfson/grunt-init-browser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/twolfson/grunt-init-browser/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/twolfson/grunt-init-browser/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "grunt.js",
+  "bin": "bin/grunt-init-browser",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "grunt --base ./test/ --config ./test/grunt.js"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.17"
+  },
+  "keywords": [
+    "gruntplugin",
+    "grunt",
+    "init",
+    "browser",
+    "amd",
+    "require",
+    "requirejs",
+    "script",
+    "jquery",
+    "plugin"
+  ]
+}
