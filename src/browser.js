@@ -28,7 +28,7 @@ exports.template = function(grunt, init, done) {
   grunt.helper('prompt', {type: 'browser'}, [
     // Prompt for these values.
     grunt.helper('prompt_for', 'name'),
-    grunt.helper('prompt_for', 'description', 'The best sample grunt tasks ever.'),
+    grunt.helper('prompt_for', 'description', 'The best browser script ever.'),
     grunt.helper('prompt_for', 'version'),
     grunt.helper('prompt_for', 'repository'),
     grunt.helper('prompt_for', 'homepage'),
@@ -37,10 +37,31 @@ exports.template = function(grunt, init, done) {
     grunt.helper('prompt_for', 'author_name'),
     grunt.helper('prompt_for', 'author_email'),
     grunt.helper('prompt_for', 'author_url'),
-    grunt.helper('prompt_for', 'grunt_version'),
-    grunt.helper('prompt_for', 'node_version', '*'),
     grunt.helper('prompt_for', 'keywords')
   ], function(err, props) {
+    // Set up package.json defaults
+    props.npm_test = 'grunt qunit';
+    props.dependencies = {};
+    props.devDependencies = {
+      grunt: "~0.3.17",
+      'grunt-templater': "0.0.3-1",
+      mustache: "~0.7.0"
+    };
+    props.main = 'src/' + props.name + '.js';
+    props.engines = {
+      node: "*"
+    };
+
+    // Break up the keywords by commas
+    var keywords = props.keywords;
+    keywords = keywords.split(',');
+
+    // Trim each keyword and save
+    keywords = keywords.map(function (str) {
+      return str.trim();
+    });
+    props.keywords = keywords;
+
     // Files to copy (and process).
     var files = init.filesToCopy(props);
 
@@ -50,17 +71,8 @@ exports.template = function(grunt, init, done) {
     // Actually copy (and process) files.
     init.copyAndProcess(files, props, {noProcess: 'libs/**'});
 
-    // Generate package.json file, used by npm and grunt.
-    init.writePackageJSON('package.json', {
-      name: 'jquery-plugin',
-      version: '0.0.0-ignored',
-      npm_test: 'grunt qunit',
-      // TODO: pull from grunt's package.json
-      node_version: '>= 0.6.0',
-    });
-
-    // Generate jquery.json file.
-    init.writePackageJSON(props.jqueryjson, props);
+    // Generate package.json file.
+    init.writePackageJSON('package.json', props);
 
     // All done!
     done();
