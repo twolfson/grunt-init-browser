@@ -2,6 +2,13 @@
 
 Grunt init template for generating and testing multiple versions of a browser script
 
+This template creates a vanilla JS and [require.js][requirejs] out of the box in minified and unminified flavors.
+
+More variants can be added via [mustache][mustache] templates.
+
+[requirejs]: http://requirejs.org/
+[mustache]: https://github.com/janl/mustache.js
+
 ## Getting Started
 Install `grunt-init-browser` globally and call it from the shell
 ```shell
