@@ -5,8 +5,8 @@
 ## Getting Started
 Download the [production version][min] ([vanilla][min] or [requirejs][min_require]) or the [development version][max] ([vanilla][max] or [requirejs][max_require]).
 
-[min]: https://raw.github.com/{%= git_user %}/{%= git_repo %}/master/dist/{%= name %}.require.min.js
-[max]: https://raw.github.com/{%= git_user %}/{%= git_repo %}/master/dist/{%= name %}.require.js
+[min_require]: https://raw.github.com/{%= git_user %}/{%= git_repo %}/master/dist/{%= name %}.require.min.js
+[max_require]: https://raw.github.com/{%= git_user %}/{%= git_repo %}/master/dist/{%= name %}.require.js
 [min]: https://raw.github.com/{%= git_user %}/{%= git_repo %}/master/dist/{%= name %}.min.js
 [max]: https://raw.github.com/{%= git_user %}/{%= git_repo %}/master/dist/{%= name %}.js
 

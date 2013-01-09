@@ -1,7 +1,7 @@
 {
   "name": "grunt-init-browser",
   "description": "Grunt init template for generating and testing multiple versions of a browser script",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/twolfson/grunt-init-browser",
   "author": {
     "name": "Todd Wolfson",
