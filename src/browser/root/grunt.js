@@ -86,7 +86,7 @@ module.exports = function(grunt) {
   // Load in grunt-templater
   grunt.loadNpmTasks('grunt-templater');
 
-  // Alias test as qunit
+  // Alias qunit as test
   grunt.registerTask('test', 'qunit');
 
   // Default task.
