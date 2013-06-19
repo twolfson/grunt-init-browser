@@ -1,4 +1,4 @@
-# grunt-init-browser
+# grunt-init-browser [![Donate on Gittip](http://badgr.co/gittip/twolfson.png)](https://www.gittip.com/twolfson/)
 
 Grunt init template for generating and testing multiple versions of a browser script
 
